@@ -1,13 +1,23 @@
-﻿namespace AbstructFactory;
+namespace AbstructFactory;
 
-internal class Program
+
+class Program
 {
     static void Main()
     {
-        Client client;
+        // Client uses Art Deco furniture factory
+        AbstractFurnitureFactory artDecoFactory = new ArtDecoFactory();
+        Client artDecoClient = new Client(artDecoFactory);
+        artDecoClient.Run();
 
-        client = new Client(new ArtDecoFactorys());
-        client = new Client(new VictorianFactory());
-        client = new Client(new ModernFactory());
+        // Client uses Victorian furniture factory
+        AbstractFurnitureFactory victorianFactory = new VictorianFactory();
+        Client victorianClient = new Client(victorianFactory);
+        victorianClient.Run();
+
+        // Client uses Modern furniture factory
+        AbstractFurnitureFactory modernFactory = new ModernFactory();
+        Client modernClient = new Client(modernFactory);
+        modernClient.Run();
     }
 }
